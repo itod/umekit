@@ -136,6 +136,8 @@
 		D3E571CD1091255500810BCD /* UMEBarButtonItemButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E571CB1091255500810BCD /* UMEBarButtonItemButtonCell.h */; };
 		D3E571FC109125E500810BCD /* UMEActivityBarButtonItemButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E571FA109125E500810BCD /* UMEActivityBarButtonItemButtonCell.m */; };
 		D3E571FD109125E500810BCD /* UMEActivityBarButtonItemButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E571FB109125E500810BCD /* UMEActivityBarButtonItemButtonCell.h */; };
+		D3EB8C4E117A65D8003C4A2E /* UMEToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EB8C4D117A65D8003C4A2E /* UMEToolbar.m */; };
+		D3EB8C50117A65EE003C4A2E /* UMEToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EB8C4F117A65EE003C4A2E /* UMEToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,6 +294,8 @@
 		D3E571CB1091255500810BCD /* UMEBarButtonItemButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEBarButtonItemButtonCell.h; path = src/UMEBarButtonItemButtonCell.h; sourceTree = "<group>"; };
 		D3E571FA109125E500810BCD /* UMEActivityBarButtonItemButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEActivityBarButtonItemButtonCell.m; path = src/UMEActivityBarButtonItemButtonCell.m; sourceTree = "<group>"; };
 		D3E571FB109125E500810BCD /* UMEActivityBarButtonItemButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEActivityBarButtonItemButtonCell.h; path = src/UMEActivityBarButtonItemButtonCell.h; sourceTree = "<group>"; };
+		D3EB8C4D117A65D8003C4A2E /* UMEToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEToolbar.m; path = src/UMEToolbar.m; sourceTree = "<group>"; };
+		D3EB8C4F117A65EE003C4A2E /* UMEToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEToolbar.h; path = include/UMEKit/UMEToolbar.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +363,8 @@
 		08FB77AEFE84172EC02AAC07 /* UMEKit Framework */ = {
 			isa = PBXGroup;
 			children = (
+				D3EB8C4F117A65EE003C4A2E /* UMEToolbar.h */,
+				D3EB8C4D117A65D8003C4A2E /* UMEToolbar.m */,
 				D3DEC16B10700D50006B582A /* UMEViewController.h */,
 				D3DEC10E1070062E006B582A /* UMEViewController.m */,
 				D3DEC19810700DE7006B582A /* UMENavigationController.h */,
@@ -595,6 +601,7 @@
 				D3E571CD1091255500810BCD /* UMEBarButtonItemButtonCell.h in Headers */,
 				D3E571FD109125E500810BCD /* UMEActivityBarButtonItemButtonCell.h in Headers */,
 				D306BB6B10916A3A0011DE1B /* UMETabBarItemButtonCell.h in Headers */,
+				D3EB8C50117A65EE003C4A2E /* UMEToolbar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +787,7 @@
 				D3E571CC1091255500810BCD /* UMEBarButtonItemButtonCell.m in Sources */,
 				D3E571FC109125E500810BCD /* UMEActivityBarButtonItemButtonCell.m in Sources */,
 				D306BB6A10916A3A0011DE1B /* UMETabBarItemButtonCell.m in Sources */,
+				D3EB8C4E117A65D8003C4A2E /* UMEToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
