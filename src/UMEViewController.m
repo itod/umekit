@@ -62,7 +62,7 @@
     if ([nibName length]) {
         NSNib *nib = [[[NSNib alloc] initWithNibNamed:nibName bundle:nibBundle] autorelease];
         if (![nib instantiateNibWithOwner:self topLevelObjects:nil]) {
-            [NSException raise:@"UMEViewControllerFailedNibLoad" format:nil];
+            [NSException raise:@"UMEViewControllerFailedNibLoad" format:@"Could not load nib named %@", nibName];
         }
         
         // view is a top level nib object and therefore must be released by me.

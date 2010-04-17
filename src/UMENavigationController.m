@@ -262,9 +262,15 @@
     
     if (oldView) {
         if (animated) {
-            [self.containerView setAnimations:isPush ? pushAnimations : popAnimations];
+            [NSAnimationContext beginGrouping];
+            [[NSAnimationContext currentContext] setDuration:1];
+
+            NSDictionary *animes = isPush ? pushAnimations : popAnimations;
+            [self.containerView setAnimations:animes];
             [[self.containerView animator] replaceSubview:oldView with:newView];
             [self.containerView setAnimations:nil];
+
+            [NSAnimationContext endGrouping];
         } else {
             [self.containerView replaceSubview:oldView with:newView];
         }
@@ -287,8 +293,8 @@
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[viewControllers count]];
         
     while ([viewControllers lastObject] != targetViewController) {
-        BOOL nextIsTarget = ([viewControllers objectAtIndex:[viewControllers count] - 2] == targetViewController);
-        [result addObject:[self popViewControllerAnimated:(animated && nextIsTarget)]];
+        BOOL isNextTarget = ([viewControllers objectAtIndex:[viewControllers count] - 2] == targetViewController);
+        [result addObject:[self popViewControllerAnimated:(animated && isNextTarget)]];
     }
         
     return [[result copy] autorelease];

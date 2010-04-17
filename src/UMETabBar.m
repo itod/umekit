@@ -46,8 +46,9 @@ static NSImage *sBackgroundImage = nil;
 }
 
 
-- (void)drawRect:(NSRect)r {
-    NSDrawThreePartImage(r, sBackgroundImage, sBackgroundImage, sBackgroundImage, NO, NSCompositeSourceOver, 1, YES);
+- (void)drawRect:(NSRect)dirtyRect {
+    NSRect bounds = [self bounds];
+    NSDrawThreePartImage(bounds, sBackgroundImage, sBackgroundImage, sBackgroundImage, NO, NSCompositeSourceOver, 1, YES);
 }
 
 @end
