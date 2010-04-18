@@ -71,7 +71,7 @@
 							<object class="NSCustomView" id="1064836951">
 								<reference key="NSNextResponder" ref="732109442"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrameSize">{357, 44}</string>
+								<string key="NSFrame">{{0, 3}, {357, 44}}</string>
 								<reference key="NSSuperview" ref="732109442"/>
 								<string key="NSClassName">UMEToolbar</string>
 							</object>

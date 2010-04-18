@@ -286,6 +286,7 @@ static NSImage *sGrayRightImageBackHi = nil;
                         centerImage = sDefaultCenterImageDone;
                         rightImage = sDefaultRightImageDone;
                     }
+                    break;
                 case UMEBarStyleBlack:
                     if ([self isHighlighted]) {
                         leftImage = sBlackLeftImageDoneHi;
@@ -296,6 +297,7 @@ static NSImage *sGrayRightImageBackHi = nil;
                         centerImage = sBlackCenterImageDone;
                         rightImage = sBlackRightImageDone;
                     }
+                    break;
                 case UMEBarStyleGray:
                     if ([self isHighlighted]) {
                         leftImage = sGrayLeftImageDoneHi;
@@ -306,6 +308,7 @@ static NSImage *sGrayRightImageBackHi = nil;
                         centerImage = sGrayCenterImageDone;
                         rightImage = sGrayRightImageDone;
                     }
+                    break;
                 default:
                     break;
             }
