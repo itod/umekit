@@ -23,6 +23,8 @@
 		D34341AA10743EE500C31EFA /* UMEInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = D34341A910743EE500C31EFA /* UMEInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D34342281074446C00C31EFA /* UMERedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34342261074446C00C31EFA /* UMERedView.m */; };
 		D343424B1074455900C31EFA /* UMEFlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D34342491074455900C31EFA /* UMEFlippedView.m */; };
+		D350D2E3117BB25A00A21B6A /* UMEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D350D2E1117BB25A00A21B6A /* UMEPopoverController.m */; };
+		D350D2F1117BB44200A21B6A /* UMEPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = D350D2F0117BB44200A21B6A /* UMEPopoverController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D35575B810867F000038982C /* MySecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35575B510867EF60038982C /* MySecondViewController.m */; };
 		D35575BC10867F240038982C /* MyThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35575BB10867F240038982C /* MyThirdViewController.m */; };
 		D39BF34F1087028800E399F3 /* UMEDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = D39BF34D1087028800E399F3 /* UMEDebugView.m */; };
@@ -198,6 +200,8 @@
 		D34342261074446C00C31EFA /* UMERedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMERedView.m; path = src/UMERedView.m; sourceTree = "<group>"; };
 		D34342481074455900C31EFA /* UMEFlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEFlippedView.h; path = src/UMEFlippedView.h; sourceTree = "<group>"; };
 		D34342491074455900C31EFA /* UMEFlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEFlippedView.m; path = src/UMEFlippedView.m; sourceTree = "<group>"; };
+		D350D2E1117BB25A00A21B6A /* UMEPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEPopoverController.m; path = src/UMEPopoverController.m; sourceTree = "<group>"; };
+		D350D2F0117BB44200A21B6A /* UMEPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEPopoverController.h; path = include/UMEKit/UMEPopoverController.h; sourceTree = "<group>"; };
 		D35575B410867EF60038982C /* MySecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySecondViewController.h; path = demoapp/MySecondViewController.h; sourceTree = "<group>"; };
 		D35575B510867EF60038982C /* MySecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySecondViewController.m; path = demoapp/MySecondViewController.m; sourceTree = "<group>"; };
 		D35575BA10867F240038982C /* MyThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyThirdViewController.h; path = demoapp/MyThirdViewController.h; sourceTree = "<group>"; };
@@ -405,8 +409,7 @@
 		08FB77AEFE84172EC02AAC07 /* UMEKit Framework */ = {
 			isa = PBXGroup;
 			children = (
-				D3EB8C4F117A65EE003C4A2E /* UMEToolbar.h */,
-				D3EB8C4D117A65D8003C4A2E /* UMEToolbar.m */,
+				D350D2DF117BB24900A21B6A /* Popover */,
 				D3DEC16B10700D50006B582A /* UMEViewController.h */,
 				D3DEC10E1070062E006B582A /* UMEViewController.m */,
 				D3DEC19810700DE7006B582A /* UMENavigationController.h */,
@@ -419,6 +422,8 @@
 				D3DEC1B310701123006B582A /* UMETabBarController.m */,
 				D3DEC1BB1070114D006B582A /* UMETabBar.h */,
 				D3DEC1B71070112F006B582A /* UMETabBar.m */,
+				D3EB8C4F117A65EE003C4A2E /* UMEToolbar.h */,
+				D3EB8C4D117A65D8003C4A2E /* UMEToolbar.m */,
 				D3CF41D61090076C0035F42A /* UMEBarItem.h */,
 				D3CF41D3109002EB0035F42A /* UMEBarItem.m */,
 				D306BB66109169C00011DE1B /* BarButtonItem */,
@@ -507,12 +512,21 @@
 			name = DemoApp;
 			sourceTree = "<group>";
 		};
+		D350D2DF117BB24900A21B6A /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				D350D2F0117BB44200A21B6A /* UMEPopoverController.h */,
+				D350D2E1117BB25A00A21B6A /* UMEPopoverController.m */,
+			);
+			name = Popover;
+			sourceTree = "<group>";
+		};
 		D3C3B251108562DA00ED4547 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				D3DEC19C10700E10006B582A /* UMEKit.h */,
 				D34342481074455900C31EFA /* UMEFlippedView.h */,
 				D34342491074455900C31EFA /* UMEFlippedView.m */,
-				D3DEC19C10700E10006B582A /* UMEKit.h */,
 				D34342251074446C00C31EFA /* UMERedView.h */,
 				D34342261074446C00C31EFA /* UMERedView.m */,
 				D39BF34C1087028800E399F3 /* UMEDebugView.h */,
@@ -666,6 +680,7 @@
 				D3E571FD109125E500810BCD /* UMEActivityBarButtonItemButtonCell.h in Headers */,
 				D306BB6B10916A3A0011DE1B /* UMETabBarItemButtonCell.h in Headers */,
 				D3EB8C50117A65EE003C4A2E /* UMEToolbar.h in Headers */,
+				D350D2F1117BB44200A21B6A /* UMEPopoverController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +888,7 @@
 				D3E571FC109125E500810BCD /* UMEActivityBarButtonItemButtonCell.m in Sources */,
 				D306BB6A10916A3A0011DE1B /* UMETabBarItemButtonCell.m in Sources */,
 				D3EB8C4E117A65D8003C4A2E /* UMEToolbar.m in Sources */,
+				D350D2E3117BB25A00A21B6A /* UMEPopoverController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
