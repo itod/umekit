@@ -25,21 +25,14 @@
 }
 
 
-
-@synthesize delegate;
-
-@synthesize contentViewController;
 - (void)setContentViewController:(UMEViewController *)viewController animated:(BOOL)animated {
     
 }
 
-@synthesize popoverContentSize;
+
 - (void)setPopoverContentSize:(CGSize)size animated:(BOOL)animated {
     
 }
-@synthesize popoverVisible;
-@synthesize popoverArrowDirection;
-@synthesize passthroughViews;
 
 
 - (void)presentPopoverFromRect:(CGRect)rect inView:(UMEView *)view permittedArrowDirections:(UMEPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
@@ -56,6 +49,12 @@
     
 }
 
+@synthesize delegate;
+@synthesize contentViewController;
+@synthesize popoverContentSize;
+@synthesize popoverVisible;
+@synthesize popoverArrowDirection;
+@synthesize passthroughViews;
 @end
 
 //@implementation UMEViewController (UMEPopoverController)

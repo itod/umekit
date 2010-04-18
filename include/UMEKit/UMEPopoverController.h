@@ -45,6 +45,7 @@ typedef enum NSUInteger {
     UMEViewController *slidingViewController;
     id target;
     SEL didEndSelector;
+    BOOL popoverVisible;
 //    struct {
 //        unsigned int isPresentingOrDismissing:1;
 //        unsigned int isPresentingModalViewController:1;
