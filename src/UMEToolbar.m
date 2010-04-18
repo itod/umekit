@@ -8,12 +8,16 @@
 
 #import "UMEToolbar.h"
 
+#define ITEM_X 4.0
+#define ITEM_MARGIN 5.0
+
 static NSImage *sDefaultBackgroundImage = nil;
 static NSImage *sBlackBackgroundImage = nil;
 static NSImage *sGrayBackgroundImage = nil;
 
 @interface UMEBarButtonItem ()
 - (void)sizeToFit;
+@property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
 @end
 
 @interface UMEToolbar ()
@@ -107,6 +111,10 @@ static NSImage *sGrayBackgroundImage = nil;
         [items autorelease];
         items = [a retain];
         
+        for (UMEBarButtonItem *item in items) {
+            item.barStyle = barStyle;
+        }
+        
         [self layoutItems];
     }
 }
@@ -116,7 +124,7 @@ static NSImage *sGrayBackgroundImage = nil;
 #pragma mark Private
 
 - (void)layoutItems {
-    CGFloat x = 0;
+    CGFloat x = ITEM_X;
     CGFloat y = 0;
     CGFloat w = 0;
     CGFloat h = 0;
@@ -127,7 +135,7 @@ static NSImage *sGrayBackgroundImage = nil;
         w = [item width];
         h = NSHeight([item.customView frame]);
         [item.customView setFrame:NSMakeRect(x, y, w, h)];
-        x += w;
+        x += w + ITEM_MARGIN;
     }
     
     [self setNeedsDisplay:YES];

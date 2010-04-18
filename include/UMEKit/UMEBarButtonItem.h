@@ -13,6 +13,7 @@
 //  limitations under the License.
 
 #import <UMEKit/UMEBarItem.h>
+#import <UMEKit/UMEInterface.h>
 
 typedef enum {
     UMEBarButtonItemStylePlain,    // shows glow when pressed
@@ -53,6 +54,8 @@ typedef enum {
     NSButton *button;
     UMEBarButtonItemStyle style;
     CGFloat width;
+    
+    UMEBarStyle barStyle;
 }
 
 - (id)initWithBarButtonSystemItem:(UMEBarButtonSystemItem)systemItem target:(id)target action:(SEL)action;

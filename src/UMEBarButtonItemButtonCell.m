@@ -29,6 +29,7 @@
 
 static NSShadow *sTitleShadow = nil;
 
+// barStyle default
 static NSImage *sDefaultLeftImagePlain = nil;
 static NSImage *sDefaultLeftImageDone = nil;
 static NSImage *sDefaultLeftImageBack = nil;
@@ -39,6 +40,7 @@ static NSImage *sDefaultRightImagePlain = nil;
 static NSImage *sDefaultRightImageDone = nil;
 static NSImage *sDefaultRightImageBack = nil;
 
+// barStyle default hi
 static NSImage *sDefaultLeftImagePlainHi = nil;
 static NSImage *sDefaultLeftImageDoneHi = nil;
 static NSImage *sDefaultLeftImageBackHi = nil;
@@ -48,6 +50,54 @@ static NSImage *sDefaultCenterImageBackHi = nil;
 static NSImage *sDefaultRightImagePlainHi = nil;
 static NSImage *sDefaultRightImageDoneHi = nil;
 static NSImage *sDefaultRightImageBackHi = nil;
+
+// barStyle black
+static NSImage *sBlackLeftImagePlain = nil;
+static NSImage *sBlackLeftImageDone = nil;
+static NSImage *sBlackLeftImageBack = nil;
+static NSImage *sBlackCenterImagePlain = nil;
+static NSImage *sBlackCenterImageDone = nil;
+static NSImage *sBlackCenterImageBack = nil;
+static NSImage *sBlackRightImagePlain = nil;
+static NSImage *sBlackRightImageDone = nil;
+static NSImage *sBlackRightImageBack = nil;
+
+// barStyle black hi
+static NSImage *sBlackLeftImagePlainHi = nil;
+static NSImage *sBlackLeftImageDoneHi = nil;
+static NSImage *sBlackLeftImageBackHi = nil;
+static NSImage *sBlackCenterImagePlainHi = nil;
+static NSImage *sBlackCenterImageDoneHi = nil;
+static NSImage *sBlackCenterImageBackHi = nil;
+static NSImage *sBlackRightImagePlainHi = nil;
+static NSImage *sBlackRightImageDoneHi = nil;
+static NSImage *sBlackRightImageBackHi = nil;
+
+// barStyle gray
+static NSImage *sGrayLeftImagePlain = nil;
+static NSImage *sGrayLeftImageDone = nil;
+static NSImage *sGrayLeftImageBack = nil;
+static NSImage *sGrayCenterImagePlain = nil;
+static NSImage *sGrayCenterImageDone = nil;
+static NSImage *sGrayCenterImageBack = nil;
+static NSImage *sGrayRightImagePlain = nil;
+static NSImage *sGrayRightImageDone = nil;
+static NSImage *sGrayRightImageBack = nil;
+
+// barStyle gray hi
+static NSImage *sGrayLeftImagePlainHi = nil;
+static NSImage *sGrayLeftImageDoneHi = nil;
+static NSImage *sGrayLeftImageBackHi = nil;
+static NSImage *sGrayCenterImagePlainHi = nil;
+static NSImage *sGrayCenterImageDoneHi = nil;
+static NSImage *sGrayCenterImageBackHi = nil;
+static NSImage *sGrayRightImagePlainHi = nil;
+static NSImage *sGrayRightImageDoneHi = nil;
+static NSImage *sGrayRightImageBackHi = nil;
+
+@interface UMEBarButtonItem ()
+@property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
+@end
 
 @interface UMEBarButtonItemButtonCell ()
 - (void)commonInit;
@@ -66,6 +116,7 @@ static NSImage *sDefaultRightImageBackHi = nil;
 
         NSBundle *b = [NSBundle bundleForClass:[UMEBarButtonItemButtonCell class]];
         
+        // barStyle default
         sDefaultLeftImagePlain     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_plain_bg_01"]];
         sDefaultLeftImageDone      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_done_bg_01"]];
         sDefaultLeftImageBack      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_back_bg_01"]];
@@ -75,7 +126,8 @@ static NSImage *sDefaultRightImageBackHi = nil;
         sDefaultRightImagePlain    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_plain_bg_03"]];
         sDefaultRightImageDone     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_done_bg_03"]];
         sDefaultRightImageBack     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_back_bg_03"]];
-
+        
+        // barStyle default hi
         sDefaultLeftImagePlainHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_plain_bg_hi_01"]];
         sDefaultLeftImageDoneHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_done_bg_hi_01"]];
         sDefaultLeftImageBackHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_back_bg_hi_01"]];
@@ -85,6 +137,50 @@ static NSImage *sDefaultRightImageBackHi = nil;
         sDefaultRightImagePlainHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_plain_bg_hi_03"]];
         sDefaultRightImageDoneHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_done_bg_hi_03"]];
         sDefaultRightImageBackHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_default_back_bg_hi_03"]];
+        
+        // barStyle black
+        sBlackLeftImagePlain     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_01"]];
+        sBlackLeftImageDone      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_01"]];
+        sBlackLeftImageBack      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_01"]];
+        sBlackCenterImagePlain   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_02"]];
+        sBlackCenterImageDone    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_02"]];
+        sBlackCenterImageBack    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_02"]];
+        sBlackRightImagePlain    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_03"]];
+        sBlackRightImageDone     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_03"]];
+        sBlackRightImageBack     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_03"]];
+        
+        // barStyle black hi
+        sBlackLeftImagePlainHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_hi_01"]];
+        sBlackLeftImageDoneHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_hi_01"]];
+        sBlackLeftImageBackHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_hi_01"]];
+        sBlackCenterImagePlainHi = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_hi_02"]];
+        sBlackCenterImageDoneHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_hi_02"]];
+        sBlackCenterImageBackHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_hi_02"]];
+        sBlackRightImagePlainHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_plain_bg_hi_03"]];
+        sBlackRightImageDoneHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_done_bg_hi_03"]];
+        sBlackRightImageBackHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_black_back_bg_hi_03"]];
+        
+        // barStyle gray
+        sGrayLeftImagePlain     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_01"]];
+        sGrayLeftImageDone      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_01"]];
+        sGrayLeftImageBack      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_01"]];
+        sGrayCenterImagePlain   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_02"]];
+        sGrayCenterImageDone    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_02"]];
+        sGrayCenterImageBack    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_02"]];
+        sGrayRightImagePlain    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_03"]];
+        sGrayRightImageDone     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_03"]];
+        sGrayRightImageBack     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_03"]];
+        
+        // barStyle gray hi
+        sGrayLeftImagePlainHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_hi_01"]];
+        sGrayLeftImageDoneHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_hi_01"]];
+        sGrayLeftImageBackHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_hi_01"]];
+        sGrayCenterImagePlainHi = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_hi_02"]];
+        sGrayCenterImageDoneHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_hi_02"]];
+        sGrayCenterImageBackHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_hi_02"]];
+        sGrayRightImagePlainHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_hi_03"]];
+        sGrayRightImageDoneHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_hi_03"]];
+        sGrayRightImageBackHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_hi_03"]];
         
         [pool release];
     }
@@ -140,36 +236,117 @@ static NSImage *sDefaultRightImageBackHi = nil;
     
     switch (item.style) {
         case UMEBarButtonItemStylePlain:
-            if ([self isHighlighted]) {
-                leftImage = sDefaultLeftImagePlainHi;
-                centerImage = sDefaultCenterImagePlainHi;
-                rightImage = sDefaultRightImagePlainHi;
-            } else {
-                leftImage = sDefaultLeftImagePlain;
-                centerImage = sDefaultCenterImagePlain;
-                rightImage = sDefaultRightImagePlain;
+            switch (item.barStyle) {
+                case UMEBarStyleDefault:
+                    if ([self isHighlighted]) {
+                        leftImage = sDefaultLeftImagePlainHi;
+                        centerImage = sDefaultCenterImagePlainHi;
+                        rightImage = sDefaultRightImagePlainHi;
+                    } else {
+                        leftImage = sDefaultLeftImagePlain;
+                        centerImage = sDefaultCenterImagePlain;
+                        rightImage = sDefaultRightImagePlain;
+                    }
+                    break;
+                case UMEBarStyleBlack:
+                    if ([self isHighlighted]) {
+                        leftImage = sBlackLeftImagePlainHi;
+                        centerImage = sBlackCenterImagePlainHi;
+                        rightImage = sBlackRightImagePlainHi;
+                    } else {
+                        leftImage = sBlackLeftImagePlain;
+                        centerImage = sBlackCenterImagePlain;
+                        rightImage = sBlackRightImagePlain;
+                    }
+                    break;
+                case UMEBarStyleGray:
+                    if ([self isHighlighted]) {
+                        leftImage = sGrayLeftImagePlainHi;
+                        centerImage = sGrayCenterImagePlainHi;
+                        rightImage = sGrayRightImagePlainHi;
+                    } else {
+                        leftImage = sGrayLeftImagePlain;
+                        centerImage = sGrayCenterImagePlain;
+                        rightImage = sGrayRightImagePlain;
+                    }
+                    break;
+                default:
+                    break;
             }
             break;
         case UMEBarButtonItemStyleDone:
-            if ([self isHighlighted]) {
-                leftImage = sDefaultLeftImageDoneHi;
-                centerImage = sDefaultCenterImageDoneHi;
-                rightImage = sDefaultRightImageDoneHi;
-            } else {
-                leftImage = sDefaultLeftImageDone;
-                centerImage = sDefaultCenterImageDone;
-                rightImage = sDefaultRightImageDone;
+            switch (item.barStyle) {
+                case UMEBarStyleDefault:
+                    if ([self isHighlighted]) {
+                        leftImage = sDefaultLeftImageDoneHi;
+                        centerImage = sDefaultCenterImageDoneHi;
+                        rightImage = sDefaultRightImageDoneHi;
+                    } else {
+                        leftImage = sDefaultLeftImageDone;
+                        centerImage = sDefaultCenterImageDone;
+                        rightImage = sDefaultRightImageDone;
+                    }
+                case UMEBarStyleBlack:
+                    if ([self isHighlighted]) {
+                        leftImage = sBlackLeftImageDoneHi;
+                        centerImage = sBlackCenterImageDoneHi;
+                        rightImage = sBlackRightImageDoneHi;
+                    } else {
+                        leftImage = sBlackLeftImageDone;
+                        centerImage = sBlackCenterImageDone;
+                        rightImage = sBlackRightImageDone;
+                    }
+                case UMEBarStyleGray:
+                    if ([self isHighlighted]) {
+                        leftImage = sGrayLeftImageDoneHi;
+                        centerImage = sGrayCenterImageDoneHi;
+                        rightImage = sGrayRightImageDoneHi;
+                    } else {
+                        leftImage = sGrayLeftImageDone;
+                        centerImage = sGrayCenterImageDone;
+                        rightImage = sGrayRightImageDone;
+                    }
+                default:
+                    break;
             }
             break;
         case UMEBarButtonItemStyleBack:
-            if ([self isHighlighted]) {
-                leftImage = sDefaultLeftImageBackHi;
-                centerImage = sDefaultCenterImageBackHi;
-                rightImage = sDefaultRightImageBackHi;
-            } else {
-                leftImage = sDefaultLeftImageBack;
-                centerImage = sDefaultCenterImageBack;
-                rightImage = sDefaultRightImageBack;
+            switch (item.barStyle) {
+                case UMEBarStyleDefault:
+                    if ([self isHighlighted]) {
+                        leftImage = sDefaultLeftImageBackHi;
+                        centerImage = sDefaultCenterImageBackHi;
+                        rightImage = sDefaultRightImageBackHi;
+                    } else {
+                        leftImage = sDefaultLeftImageBack;
+                        centerImage = sDefaultCenterImageBack;
+                        rightImage = sDefaultRightImageBack;
+                    }
+                    break;
+                case UMEBarStyleBlack:
+                    if ([self isHighlighted]) {
+                        leftImage = sBlackLeftImageBackHi;
+                        centerImage = sBlackCenterImageBackHi;
+                        rightImage = sBlackRightImageBackHi;
+                    } else {
+                        leftImage = sBlackLeftImageBack;
+                        centerImage = sBlackCenterImageBack;
+                        rightImage = sBlackRightImageBack;
+                    }
+                    break;
+                case UMEBarStyleGray:
+                    if ([self isHighlighted]) {
+                        leftImage = sGrayLeftImageBackHi;
+                        centerImage = sGrayCenterImageBackHi;
+                        rightImage = sGrayRightImageBackHi;
+                    } else {
+                        leftImage = sGrayLeftImageBack;
+                        centerImage = sGrayCenterImageBack;
+                        rightImage = sGrayRightImageBack;
+                    }
+                    break;
+                default:
+                    break;
             }
             break;
         default:

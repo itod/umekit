@@ -24,6 +24,7 @@
 - (void)sizeToFit;
 - (void)layout;
 @property (nonatomic, retain) NSButton *button;
+@property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
 @end
 
 @implementation UMEBarButtonItem
@@ -172,6 +173,7 @@
         self.title = aTitle;
         self.target = aTarget;
         self.action = sel;
+        self.barStyle = UMEBarStyleDefault;
         
         if (CUSTOM_VIEW_FLAG != aStyle) {
             self.customView = [[[UMEFlippedView alloc] initWithFrame:NSZeroRect] autorelease];
@@ -279,4 +281,5 @@
 @synthesize button;
 @synthesize style;
 @synthesize width;
+@synthesize barStyle;
 @end
