@@ -8,15 +8,33 @@
 
 #import "UMEToolbar.h"
 
+static NSImage *sDefaultBackgroundImage = nil;
+static NSImage *sBlackBackgroundImage = nil;
+static NSImage *sGrayBackgroundImage = nil;
+
 @interface UMEToolbar ()
-- (void)layoutSubviews;
+- (void)layoutItems;
 @end
 
 @implementation UMEToolbar
 
++ (void)initialize {
+    if ([UMEToolbar class] == self) {
+
+        NSBundle *b = [NSBundle bundleForClass:self];
+        
+        NSString *s = [b pathForImageResource:@"toolbar_bg_default"];
+        s;
+        sDefaultBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_default"]];
+        sBlackBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_black"]];
+        sGrayBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_gray"]];
+    }
+}
+
+
 - (id)initWithFrame:(NSRect)frame {
     if (self = [super initWithFrame:frame]) {
-        // Initialization code here.
+        self.barStyle = UMEBarStyleDefault;
     }
     return self;
 }
@@ -32,13 +50,45 @@
 #pragma mark -
 #pragma mark NSView
 
+- (BOOL)isFlipped {
+    return YES;
+}
+
+
+// necessary for the first run layout :|
+- (void)viewWillDraw {
+    if (!layoutDone) {
+        layoutDone = YES;
+        [self layoutItems];
+    }
+    [super viewWillDraw];
+}
+
+
 - (void)resizeSubviewsWithOldSize:(NSSize)oldSize {
-    [self layoutSubviews];
+    [self layoutItems];
 }
 
 
 - (void)drawRect:(NSRect)dirtyRect {
+    NSImage *bgImg = nil;
     
+    switch (barStyle) {
+        case UMEBarStyleDefault:
+            bgImg = sDefaultBackgroundImage;
+            break;
+        case UMEBarStyleBlack:
+            bgImg = sBlackBackgroundImage;
+            break;
+        case UMEBarStyleGray:
+            bgImg = sGrayBackgroundImage;
+            break;
+        default:
+            break;
+    }
+    
+    NSRect bounds = [self bounds];
+    NSDrawThreePartImage(bounds, bgImg, bgImg, bgImg, NO, NSCompositeSourceOver, 1, YES);
 }
 
 
@@ -53,7 +103,19 @@
 #pragma mark -
 #pragma mark Private
 
-- (void)layoutSubviews {
+- (void)layoutItems {
+    CGFloat x = 0;
+    CGFloat y = 0;
+    CGFloat w = 0;
+    CGFloat h = 0;
+    
+    for (UMEBarButtonItem *item in items) {
+        [self addSubview:item.customView];
+        w = [item width];
+        h = NSHeight([item.customView frame]);
+        [item.customView setFrame:NSMakeRect(x, y, w, h)];
+        x += w;
+    }
     
 }
 

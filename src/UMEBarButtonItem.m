@@ -250,6 +250,12 @@
 }
 
 
+- (CGFloat)width {
+    [self sizeToFit];
+    return NSWidth([customView frame]);
+}
+
+
 - (id)target {
     return [button target];
 }
