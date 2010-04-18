@@ -16,6 +16,7 @@
 
 @interface MyRootViewController : UMEViewController {
     IBOutlet NSButton *button;
+    IBOutlet UMEToolbar *toolbar;
 }
 
 - (IBAction)click:(id)sender;

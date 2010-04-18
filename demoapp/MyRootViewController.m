@@ -78,6 +78,17 @@
                                                                                                  action:@selector(stop:)] autorelease];
     }
     
+    
+    NSMutableArray *items = [NSMutableArray array];
+    UMEBarButtonItem *item = nil;
+    
+    item = [[[UMEBarButtonItem alloc] initWithBarButtonSystemItem:UMEBarButtonSystemItemCamera target:nil action:nil] autorelease];
+    [items addObject:item];
+    
+    item = [[[UMEBarButtonItem alloc] initWithBarButtonSystemItem:UMEBarButtonSystemItemCompose target:nil action:nil] autorelease];
+    [items addObject:item];
+        
+    toolbar.items = items;
 }
 
 

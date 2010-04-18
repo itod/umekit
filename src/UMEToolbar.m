@@ -12,6 +12,10 @@ static NSImage *sDefaultBackgroundImage = nil;
 static NSImage *sBlackBackgroundImage = nil;
 static NSImage *sGrayBackgroundImage = nil;
 
+@interface UMEBarButtonItem ()
+- (void)sizeToFit;
+@end
+
 @interface UMEToolbar ()
 - (void)layoutItems;
 @end
@@ -22,9 +26,7 @@ static NSImage *sGrayBackgroundImage = nil;
     if ([UMEToolbar class] == self) {
 
         NSBundle *b = [NSBundle bundleForClass:self];
-        
-        NSString *s = [b pathForImageResource:@"toolbar_bg_default"];
-        s;
+
         sDefaultBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_default"]];
         sBlackBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_black"]];
         sGrayBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_gray"]];
@@ -34,7 +36,7 @@ static NSImage *sGrayBackgroundImage = nil;
 
 - (id)initWithFrame:(NSRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.barStyle = UMEBarStyleDefault;
+        self.barStyle = UMEBarStyleBlack;
     }
     return self;
 }
@@ -56,13 +58,13 @@ static NSImage *sGrayBackgroundImage = nil;
 
 
 // necessary for the first run layout :|
-- (void)viewWillDraw {
-    if (!layoutDone) {
-        layoutDone = YES;
-        [self layoutItems];
-    }
-    [super viewWillDraw];
-}
+//- (void)viewWillDraw {
+//    if (!layoutDone) {
+//        layoutDone = YES;
+//        [self layoutItems];
+//    }
+//    [super viewWillDraw];
+//}
 
 
 - (void)resizeSubviewsWithOldSize:(NSSize)oldSize {
@@ -100,6 +102,16 @@ static NSImage *sGrayBackgroundImage = nil;
 }
 
 
+- (void)setItems:(NSArray *)a {
+    if (a != items) {
+        [items autorelease];
+        items = [a retain];
+        
+        [self layoutItems];
+    }
+}
+
+
 #pragma mark -
 #pragma mark Private
 
@@ -110,6 +122,7 @@ static NSImage *sGrayBackgroundImage = nil;
     CGFloat h = 0;
     
     for (UMEBarButtonItem *item in items) {
+        //[item sizeToFit];
         [self addSubview:item.customView];
         w = [item width];
         h = NSHeight([item.customView frame]);
@@ -117,6 +130,7 @@ static NSImage *sGrayBackgroundImage = nil;
         x += w;
     }
     
+    [self setNeedsDisplay:YES];
 }
 
 @synthesize barStyle;
