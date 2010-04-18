@@ -210,13 +210,7 @@ static NSImage *sRightImageBackHi = nil;
     
     // draw image 
     if (NSImageOnly == [self imagePosition]) {
-        NSImage *img = nil;
-        if ([self isHighlighted]) {
-            img = [self alternateImage];
-        } else {
-            img = [self image];
-        }
-        
+        NSImage *img = [self image];        
         [img setFlipped:[cv isFlipped]];
         
         NSSize size = [img size];

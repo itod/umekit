@@ -25,7 +25,7 @@ static NSImage *sGrayBackgroundImage = nil;
 + (void)initialize {
     if ([UMEToolbar class] == self) {
 
-        NSBundle *b = [NSBundle bundleForClass:self];
+        NSBundle *b = [NSBundle bundleForClass:[UMEToolbar class]];
 
         sDefaultBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_default"]];
         sBlackBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_black"]];
@@ -36,7 +36,7 @@ static NSImage *sGrayBackgroundImage = nil;
 
 - (id)initWithFrame:(NSRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.barStyle = UMEBarStyleBlack;
+        self.barStyle = UMEBarStyleDefault;
     }
     return self;
 }
