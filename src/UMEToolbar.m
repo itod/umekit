@@ -14,6 +14,7 @@
 static NSImage *sDefaultBackgroundImage = nil;
 static NSImage *sBlackBackgroundImage = nil;
 static NSImage *sGrayBackgroundImage = nil;
+static NSImage *sNavyBackgroundImage = nil;
 
 @interface UMEBarButtonItem ()
 - (void)sizeToFit;
@@ -34,6 +35,7 @@ static NSImage *sGrayBackgroundImage = nil;
         sDefaultBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_default"]];
         sBlackBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_black"]];
         sGrayBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_gray"]];
+        sNavyBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_navy"]];
     }
 }
 
@@ -88,6 +90,9 @@ static NSImage *sGrayBackgroundImage = nil;
             break;
         case UMEBarStyleGray:
             bgImg = sGrayBackgroundImage;
+            break;
+        case UMEBarStyleNavy:
+            bgImg = sNavyBackgroundImage;
             break;
         default:
             break;

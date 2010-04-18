@@ -106,7 +106,7 @@
     item = [[[UMEBarButtonItem alloc] initWithBarButtonSystemItem:UMEBarButtonSystemItemDone target:nil action:nil] autorelease];
     [items addObject:item];
     
-    toolbar.barStyle = UMEBarStyleBlack;
+    toolbar.barStyle = UMEBarStyleNavy;
     toolbar.items = items;
 }
 

@@ -95,6 +95,28 @@ static NSImage *sGrayRightImagePlainHi = nil;
 static NSImage *sGrayRightImageDoneHi = nil;
 static NSImage *sGrayRightImageBackHi = nil;
 
+// barStyle navy
+static NSImage *sNavyLeftImagePlain = nil;
+static NSImage *sNavyLeftImageDone = nil;
+static NSImage *sNavyLeftImageBack = nil;
+static NSImage *sNavyCenterImagePlain = nil;
+static NSImage *sNavyCenterImageDone = nil;
+static NSImage *sNavyCenterImageBack = nil;
+static NSImage *sNavyRightImagePlain = nil;
+static NSImage *sNavyRightImageDone = nil;
+static NSImage *sNavyRightImageBack = nil;
+
+// barStyle navy hi
+static NSImage *sNavyLeftImagePlainHi = nil;
+static NSImage *sNavyLeftImageDoneHi = nil;
+static NSImage *sNavyLeftImageBackHi = nil;
+static NSImage *sNavyCenterImagePlainHi = nil;
+static NSImage *sNavyCenterImageDoneHi = nil;
+static NSImage *sNavyCenterImageBackHi = nil;
+static NSImage *sNavyRightImagePlainHi = nil;
+static NSImage *sNavyRightImageDoneHi = nil;
+static NSImage *sNavyRightImageBackHi = nil;
+
 @interface UMEBarButtonItem ()
 @property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
 @end
@@ -181,6 +203,28 @@ static NSImage *sGrayRightImageBackHi = nil;
         sGrayRightImagePlainHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_plain_bg_hi_03"]];
         sGrayRightImageDoneHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_done_bg_hi_03"]];
         sGrayRightImageBackHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_gray_back_bg_hi_03"]];
+        
+        // barStyle navy
+        sNavyLeftImagePlain     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_01"]];
+        sNavyLeftImageDone      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_01"]];
+        sNavyLeftImageBack      = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_01"]];
+        sNavyCenterImagePlain   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_02"]];
+        sNavyCenterImageDone    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_02"]];
+        sNavyCenterImageBack    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_02"]];
+        sNavyRightImagePlain    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_03"]];
+        sNavyRightImageDone     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_03"]];
+        sNavyRightImageBack     = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_03"]];
+        
+        // barStyle navy hi
+        sNavyLeftImagePlainHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_hi_01"]];
+        sNavyLeftImageDoneHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_hi_01"]];
+        sNavyLeftImageBackHi    = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_hi_01"]];
+        sNavyCenterImagePlainHi = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_hi_02"]];
+        sNavyCenterImageDoneHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_hi_02"]];
+        sNavyCenterImageBackHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_hi_02"]];
+        sNavyRightImagePlainHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_plain_bg_hi_03"]];
+        sNavyRightImageDoneHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_done_bg_hi_03"]];
+        sNavyRightImageBackHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"barbuttonitem_navy_back_bg_hi_03"]];
         
         [pool release];
     }
@@ -270,6 +314,17 @@ static NSImage *sGrayRightImageBackHi = nil;
                         rightImage = sGrayRightImagePlain;
                     }
                     break;
+                case UMEBarStyleNavy:
+                    if ([self isHighlighted]) {
+                        leftImage = sNavyLeftImagePlainHi;
+                        centerImage = sNavyCenterImagePlainHi;
+                        rightImage = sNavyRightImagePlainHi;
+                    } else {
+                        leftImage = sNavyLeftImagePlain;
+                        centerImage = sNavyCenterImagePlain;
+                        rightImage = sNavyRightImagePlain;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -309,6 +364,17 @@ static NSImage *sGrayRightImageBackHi = nil;
                         rightImage = sGrayRightImageDone;
                     }
                     break;
+                case UMEBarStyleNavy:
+                    if ([self isHighlighted]) {
+                        leftImage = sNavyLeftImageDoneHi;
+                        centerImage = sNavyCenterImageDoneHi;
+                        rightImage = sNavyRightImageDoneHi;
+                    } else {
+                        leftImage = sNavyLeftImageDone;
+                        centerImage = sNavyCenterImageDone;
+                        rightImage = sNavyRightImageDone;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -346,6 +412,17 @@ static NSImage *sGrayRightImageBackHi = nil;
                         leftImage = sGrayLeftImageBack;
                         centerImage = sGrayCenterImageBack;
                         rightImage = sGrayRightImageBack;
+                    }
+                    break;
+                case UMEBarStyleNavy:
+                    if ([self isHighlighted]) {
+                        leftImage = sNavyLeftImageBackHi;
+                        centerImage = sNavyCenterImageBackHi;
+                        rightImage = sNavyRightImageBackHi;
+                    } else {
+                        leftImage = sNavyLeftImageBack;
+                        centerImage = sNavyCenterImageBack;
+                        rightImage = sNavyRightImageBack;
                     }
                     break;
                 default:
