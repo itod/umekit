@@ -13,6 +13,7 @@
 //  limitations under the License.
 
 #import "UMETabBarItemButtonCell.h"
+#import "UMEImageCache.h"
 #import <UMEKit/UMETabBarItem.h>
 
 #define MIN_WIDTH 40
@@ -21,12 +22,6 @@
 #define IMAGE_OFFSET_Y 4
 
 static NSShadow *sTitleShadow = nil;
-
-static NSImage *sLeftImageHi = nil;
-static NSImage *sCenterImageHi = nil;
-static NSImage *sRightImageHi = nil;
-
-static NSImage *sBackgroundImage = nil;
 
 @interface UMETabBarItemButtonCell ()
 - (void)commonInit;
@@ -42,14 +37,6 @@ static NSImage *sBackgroundImage = nil;
         [sTitleShadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:0.5]];
         [sTitleShadow setShadowOffset:NSMakeSize(0, 1)];
         [sTitleShadow setShadowBlurRadius:0];
-        
-        NSBundle *b = [NSBundle bundleForClass:self];
-        
-        sLeftImageHi   = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"tabbar_button_bg_hi_01"]];
-        sCenterImageHi = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"tabbar_button_bg_hi_02"]];
-        sRightImageHi  = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"tabbar_button_bg_hi_03"]];
-        
-        sBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"tabbar_bg"]];
         
         [pool release];
     }
@@ -101,13 +88,13 @@ static NSImage *sBackgroundImage = nil;
         return;
     }    
     
-    NSDrawThreePartImage(r, sBackgroundImage, sBackgroundImage, sBackgroundImage, NO, NSCompositeSourceOver, 1, YES);
+    NSDrawThreePartImage(r, UMEIMG(@"tabbar_bg"), UMEIMG(@"tabbar_bg"), UMEIMG(@"tabbar_bg"), NO, NSCompositeSourceOver, 1, YES);
     
     // draw bg image
     if (NSOnState == [self state]) {
-        NSImage *leftImage = sLeftImageHi;
-        NSImage *centerImage = sCenterImageHi;
-        NSImage *rightImage = sRightImageHi;
+        NSImage *leftImage = UMEIMG(@"tabbar_button_bg_hi_01");
+        NSImage *centerImage = UMEIMG(@"tabbar_button_bg_hi_02");
+        NSImage *rightImage = UMEIMG(@"tabbar_button_bg_hi_03");
         
         [leftImage setFlipped:[cv isFlipped]];
         [centerImage setFlipped:[cv isFlipped]];

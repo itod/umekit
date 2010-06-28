@@ -16,14 +16,13 @@
 #import <UMEKit/UMEBarButtonItem.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UMEFlippedView.h"
+#import "UMEImageCache.h"
 
 #define SIDE_VIEW_PADDING 4
 #define LABEL_HEIGHT 20
 #define LABEL_OFFSET_Y 12
 #define LABEL_FONT_SIZE 16
 #define MAX_TITLE_WIDTH_RATIO .5
-
-static NSImage *sBackgroundImage = nil;
 
 @interface UMEBarButtonItem ()
 - (void)sizeToFit;
@@ -56,14 +55,6 @@ static NSImage *sBackgroundImage = nil;
 @end
 
 @implementation UMENavigationBar
-
-+ (void)initialize {
-    if ([UMENavigationBar class] == self) {
-        NSString *path = [[NSBundle bundleForClass:self] pathForImageResource:@"navbar_bg"];
-        sBackgroundImage = [[NSImage alloc] initWithContentsOfFile:path];
-    }
-}
-
 
 - (id)initWithFrame:(NSRect)r {
     if (self = [super initWithFrame:r]) {
@@ -378,7 +369,7 @@ static NSImage *sBackgroundImage = nil;
 
 - (void)drawRect:(NSRect)dirtyRect {
     NSRect bounds = [self bounds];
-    NSDrawThreePartImage(bounds, sBackgroundImage, sBackgroundImage, sBackgroundImage, NO, NSCompositeSourceOver, 1, YES);
+    NSDrawThreePartImage(bounds, UMEIMG(@"navbar_bg"), UMEIMG(@"navbar_bg"), UMEIMG(@"navbar_bg"), NO, NSCompositeSourceOver, 1, YES);
 }
 
 @synthesize containerView;

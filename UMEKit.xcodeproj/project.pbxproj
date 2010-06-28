@@ -54,6 +54,8 @@
 		D3DEC239107013A7006B582A /* UMENavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DEC237107013A7006B582A /* UMENavigationBar.m */; };
 		D3DEC242107013DF006B582A /* UMEBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3DEC240107013DF006B582A /* UMEBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3DEC243107013DF006B582A /* UMENavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D3DEC241107013DF006B582A /* UMENavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3E20CAB11D850A9006C9532 /* UMEImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E20CA911D850A9006C9532 /* UMEImageCache.h */; };
+		D3E20CAC11D850A9006C9532 /* UMEImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E20CAA11D850A9006C9532 /* UMEImageCache.m */; };
 		D3E571BF109123B900810BCD /* UMEActivityBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E571BD109123B900810BCD /* UMEActivityBarButtonItem.m */; };
 		D3E571C1109123F000810BCD /* UMEActivityBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E571C0109123F000810BCD /* UMEActivityBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3E571C41091249B00810BCD /* UMEActivityBarButtonItemButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E571C21091249B00810BCD /* UMEActivityBarButtonItemButton.h */; };
@@ -247,6 +249,8 @@
 		D3DEC237107013A7006B582A /* UMENavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMENavigationBar.m; path = src/UMENavigationBar.m; sourceTree = "<group>"; };
 		D3DEC240107013DF006B582A /* UMEBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEBarButtonItem.h; path = include/UMEKit/UMEBarButtonItem.h; sourceTree = "<group>"; };
 		D3DEC241107013DF006B582A /* UMENavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMENavigationBar.h; path = include/UMEKit/UMENavigationBar.h; sourceTree = "<group>"; };
+		D3E20CA911D850A9006C9532 /* UMEImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEImageCache.h; path = src/UMEImageCache.h; sourceTree = "<group>"; };
+		D3E20CAA11D850A9006C9532 /* UMEImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEImageCache.m; path = src/UMEImageCache.m; sourceTree = "<group>"; };
 		D3E571BD109123B900810BCD /* UMEActivityBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UMEActivityBarButtonItem.m; path = src/UMEActivityBarButtonItem.m; sourceTree = "<group>"; };
 		D3E571C0109123F000810BCD /* UMEActivityBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEActivityBarButtonItem.h; path = include/UMEKit/UMEActivityBarButtonItem.h; sourceTree = "<group>"; };
 		D3E571C21091249B00810BCD /* UMEActivityBarButtonItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMEActivityBarButtonItemButton.h; path = src/UMEActivityBarButtonItemButton.h; sourceTree = "<group>"; };
@@ -481,6 +485,8 @@
 				D343404C10741E2200C31EFA /* UMEGeometry.h */,
 				D34341A910743EE500C31EFA /* UMEInterface.h */,
 				32DBCF5E0370ADEE00C91783 /* UMEKit_Prefix.pch */,
+				D3E20CA911D850A9006C9532 /* UMEImageCache.h */,
+				D3E20CAA11D850A9006C9532 /* UMEImageCache.m */,
 				D3C3B251108562DA00ED4547 /* Internal */,
 			);
 			name = "Other Sources";
@@ -718,6 +724,7 @@
 				D3EB8C50117A65EE003C4A2E /* UMEToolbar.h in Headers */,
 				D350D2F1117BB44200A21B6A /* UMEPopoverController.h in Headers */,
 				D3EA864F117BBA24000988EE /* UMEPopoverView.h in Headers */,
+				D3E20CAB11D850A9006C9532 /* UMEImageCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,6 +944,7 @@
 				D3EB8C4E117A65D8003C4A2E /* UMEToolbar.m in Sources */,
 				D350D2E3117BB25A00A21B6A /* UMEPopoverController.m in Sources */,
 				D3EA8650117BBA24000988EE /* UMEPopoverView.m in Sources */,
+				D3E20CAC11D850A9006C9532 /* UMEImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

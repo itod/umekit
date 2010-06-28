@@ -13,20 +13,11 @@
 //  limitations under the License.
 
 #import <UMEKit/UMETabBar.h>
+#import "UMEImageCache.h"
 
 #define TABBAR_HEIGHT 60.0
 
-static NSImage *sBackgroundImage = nil;
-
 @implementation UMETabBar
-
-+ (void)initialize {
-    if ([UMETabBar class] == self) {
-        NSString *path = [[NSBundle bundleForClass:self] pathForImageResource:@"tabbar_bg"];
-        sBackgroundImage = [[NSImage alloc] initWithContentsOfFile:path];
-    }
-}
-
 
 - (id)initWithFrame:(NSRect)r {
     if (self = [super initWithFrame:r]) {
@@ -48,7 +39,7 @@ static NSImage *sBackgroundImage = nil;
 
 - (void)drawRect:(NSRect)dirtyRect {
     NSRect bounds = [self bounds];
-    NSDrawThreePartImage(bounds, sBackgroundImage, sBackgroundImage, sBackgroundImage, NO, NSCompositeSourceOver, 1, YES);
+    NSDrawThreePartImage(bounds, UMEIMG(@"tabbar_bg"), UMEIMG(@"tabbar_bg"), UMEIMG(@"tabbar_bg"), NO, NSCompositeSourceOver, 1, YES);
 }
 
 @end

@@ -7,14 +7,10 @@
 //
 
 #import "UMEToolbar.h"
+#import "UMEImageCache.h"
 
 #define ITEM_X 4.0
 #define ITEM_MARGIN 5.0
-
-static NSImage *sDefaultBackgroundImage = nil;
-static NSImage *sBlackBackgroundImage = nil;
-static NSImage *sGrayBackgroundImage = nil;
-static NSImage *sNavyBackgroundImage = nil;
 
 @interface UMEBarButtonItem ()
 - (void)sizeToFit;
@@ -26,19 +22,6 @@ static NSImage *sNavyBackgroundImage = nil;
 @end
 
 @implementation UMEToolbar
-
-+ (void)initialize {
-    if ([UMEToolbar class] == self) {
-
-        NSBundle *b = [NSBundle bundleForClass:[UMEToolbar class]];
-
-        sDefaultBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_default"]];
-        sBlackBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_black"]];
-        sGrayBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_gray"]];
-        sNavyBackgroundImage = [[NSImage alloc] initWithContentsOfFile:[b pathForImageResource:@"toolbar_bg_navy"]];
-    }
-}
-
 
 - (id)initWithFrame:(NSRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -83,16 +66,16 @@ static NSImage *sNavyBackgroundImage = nil;
     
     switch (barStyle) {
         case UMEBarStyleDefault:
-            bgImg = sDefaultBackgroundImage;
+            bgImg = UMEIMG(@"toolbar_bg_default");
             break;
         case UMEBarStyleBlack:
-            bgImg = sBlackBackgroundImage;
+            bgImg = UMEIMG(@"toolbar_bg_black");
             break;
         case UMEBarStyleGray:
-            bgImg = sGrayBackgroundImage;
+            bgImg = UMEIMG(@"toolbar_bg_gray");
             break;
         case UMEBarStyleNavy:
-            bgImg = sNavyBackgroundImage;
+            bgImg = UMEIMG(@"toolbar_bg_navy");
             break;
         default:
             break;
