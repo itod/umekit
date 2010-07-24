@@ -32,6 +32,7 @@ static NSShadow *sTitleShadow = nil;
 
 @interface UMEBarButtonItem ()
 @property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
+@property (nonatomic, getter=isSpace) BOOL space;
 @end
 
 @interface UMEBarButtonItemButtonCell ()
@@ -83,7 +84,7 @@ static NSShadow *sTitleShadow = nil;
 
 
 - (BOOL)isOpaque {
-    return YES;
+    return NO;
 }
 
 
@@ -271,6 +272,8 @@ static NSShadow *sTitleShadow = nil;
     UMEBarButtonItemButton *button = (UMEBarButtonItemButton *)cv;
     UMEBarButtonItem *item = button.item;
 
+    if (item.isSpace) return;
+    
     // if below the min width, just clear and return (dont draw borked background image)
     CGFloat minWidth = MIN_WIDTH;
     if (NSImageOnly == [self imagePosition]) {

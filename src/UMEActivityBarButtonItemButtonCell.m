@@ -129,6 +129,7 @@
 		NSPoint inner;
 		NSPoint outer;
 		[NSBezierPath setDefaultLineCapStyle:NSRoundLineCapStyle];
+                strokeWidth = strokeWidth < 0.1 ? 0.1 :strokeWidth;
 		[NSBezierPath setDefaultLineWidth:strokeWidth];
 		if ([self isSpinning]) {
 			a = (270+(step* 30))*DEG2RAD;

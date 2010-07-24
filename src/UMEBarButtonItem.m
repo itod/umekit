@@ -25,6 +25,8 @@
 - (void)layout;
 @property (nonatomic, retain) NSButton *button;
 @property (nonatomic) UMEBarStyle barStyle;            // default is UMEBarStyleDefault
+@property (nonatomic, getter=isSpace) BOOL space;
+@property (nonatomic, getter=isFlexible) BOOL flexible;
 @end
 
 @implementation UMEBarButtonItem
@@ -55,9 +57,12 @@
             aTitle = NSLocalizedString(@"Add", @"");
             break;
         case UMEBarButtonSystemItemFlexibleSpace:
+            self.space = YES;
+            self.flexible = YES;
             imgPath = [b pathForImageResource:@""];
             break;
         case UMEBarButtonSystemItemFixedSpace:
+            self.space = YES;
             imgPath = [b pathForImageResource:@""];
             break;
         case UMEBarButtonSystemItemCompose:
@@ -134,11 +139,15 @@
             break;
     }
     
-    self = [self initWithTitle:aTitle style:aStyle target:t action:sel];
-    if ([imgPath length]) {
-        self.image = [[[NSImage alloc] initWithContentsOfFile:imgPath] autorelease];
+    if (self.isSpace) {
+        self = [self initWithCustomView:[[[NSView alloc] initWithFrame:NSZeroRect] autorelease]];
+    } else {
+        self = [self initWithTitle:aTitle style:aStyle target:t action:sel];
+        if ([imgPath length]) {
+            self.image = [[[NSImage alloc] initWithContentsOfFile:imgPath] autorelease];
+        }
+        [button setImagePosition:imgPos];
     }
-    [button setImagePosition:imgPos];
     return self;
 }
 
@@ -199,7 +208,9 @@
         [button sizeToFit];
         //[button setFrameOrigin:NSZeroPoint];
         [customView setFrameSize:[button frame].size];
-    } else {        
+    } else {
+        if (self.isFlexible) return;
+        
         if ([customView respondsToSelector:@selector(sizeToFit)]) {
             [customView performSelector:@selector(sizeToFit)];
         } else {
@@ -282,4 +293,6 @@
 @synthesize style;
 @synthesize width;
 @synthesize barStyle;
+@synthesize space;
+@synthesize flexible;
 @end

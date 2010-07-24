@@ -56,6 +56,9 @@ typedef enum {
     CGFloat width;
     
     UMEBarStyle barStyle;
+    
+    BOOL space;
+    BOOL flexible;
 }
 
 - (id)initWithBarButtonSystemItem:(UMEBarButtonSystemItem)systemItem target:(id)target action:(SEL)action;
