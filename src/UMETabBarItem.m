@@ -165,6 +165,12 @@
     [button setImage:img];
 }
 
+- (void)setSelectedImage:(NSImage *)image {
+    
+    [button setAlternateImage:image];
+    
+}
+
 
 - (void)setTag:(NSInteger)aTag {
     [super setTag:aTag];
