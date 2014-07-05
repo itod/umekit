@@ -37,6 +37,7 @@ typedef enum {
 - (id)initWithTabBarSystemItem:(UMETabBarSystemItem)systemItem tag:(NSInteger)tag;
 // designated initializer
 - (id)initWithTitle:(NSString *)title image:(NSImage *)image tag:(NSInteger)tag;
+- (void)setSelectedImage:(NSImage *)image;
 
 @property (nonatomic, copy) NSString *badgeValue;    // default is nil
 @end
